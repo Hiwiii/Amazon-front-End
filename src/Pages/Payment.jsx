@@ -6,7 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 
-const stripePromise = loadStripe('pk_test_51Pf6vmI0dkyXYvjUSDXYLZbegoOKcgt6hc1AlnPLlFmaPV5yWfuAwPNbzJtqv9pBTzouyvlLACKfCjtDfnM1boKB00FOtOO1CM');
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = () => {
     const { state, dispatch } = useBasket();
