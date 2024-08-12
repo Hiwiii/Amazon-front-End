@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import axios from '../utils/Api/axios';
+import axios from 'axios';
 
 const stripePromise = loadStripe('pk_test_51Pf6vmI0dkyXYvjUSDXYLZbegoOKcgt6hc1AlnPLlFmaPV5yWfuAwPNbzJtqv9pBTzouyvlLACKfCjtDfnM1boKB00FOtOO1CM');
 
@@ -22,7 +22,7 @@ const PaymentForm = () => {
                 const totalAmount = state.items.reduce((total, item) => total + item.price * item.quantity, 0) * 100;
                 console.log('Total Amount for Payment Intent:', totalAmount);
     
-                const response = await axios.post('/create-payment-intent', {
+                const response = await axios.post('https://amazon-backend-deploy-2ohu.onrender.com/create-payment-intent', {
                     amount: totalAmount
                 });
     

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useBasket } from '../components/BasketContext';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import  axios  from '../utils/Api/axios';
+import  axios  from 'axios';
 import SharedLayout from '../components/SharedLayout';
 
 const Orders = () => {
@@ -12,7 +12,7 @@ const Orders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('/orders');
+                const response = await axios.get('https://amazon-backend-deploy-2ohu.onrender.com/orders');
                 if (response.status === 200) {
                     setOrders(response.data);
                 } else {
